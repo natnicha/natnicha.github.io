@@ -21,26 +21,12 @@ jobs:
           python-version: '3.x'
 
       - name: Update README
-        run: |
-          from datetime import datetime
-
-          current_year = datetime.now().year
-          value = current_year - 2018
-
-          readme_file = "README.md"
-          with open(readme_file, "r") as f:
-              content = f.read()
-
-          # Replace the placeholder {{VALUE}} with the current calculation
-          content = content.replace("6+ years of experience", str(value) + "+ years of experience")
-          
-          with open(readme_file, "w") as f:
-              f.write(content)
+        run: python ./scripts/upate_exp_year.py
 
       - name: Commit and push changes
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "Update calculated value in README"
+          git commit -m "Update calculated year of experience in README"
           git push
