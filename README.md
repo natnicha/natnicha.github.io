@@ -53,8 +53,8 @@ I'm a passionate **Senior Backend Engineer** with **6+ years of experience** bui
 [<img src="./assets/logo/figma.svg" height="48">](https://www.figma.com/)
 [<img src="./assets/logo/trello.svg" height="48">](https://trello.com/)
 [<img src="./assets/logo/slack.svg" height="48">](https://slack.com/)
-[<img src="./assets/logo/tableau.svg" height="48">](https://slack.com/)
-[<img src="./assets/logo/power-bi.svg" height="48">](https://slack.com/)
+[<img src="./assets/logo/tableau.svg" height="48">](https://www.tableau.com/)
+[<img src="./assets/logo/power-bi.svg" height="48">](https://www.microsoft.com/en-us/power-platform/products/power-bi)
 
 ---
 
