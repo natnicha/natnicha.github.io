@@ -4,6 +4,7 @@
 
 I'm a passionate **Senior Backend Engineer** with **6+ years of experience** building **scalable, high-performance systems**. I love solving complex problems, working with distributed systems, and exploring new technologies that push the limits of what software can do.  
 
+ ---
 
 ## 🌟 About Me
 
@@ -14,6 +15,7 @@ I'm a passionate **Senior Backend Engineer** with **6+ years of experience** bui
 - 🌐 Fully **remote-work experienced** for 3+ years  
 - 🚀 Passionate about building **impactful, user-centric applications**  
 
+ ---
 
 ## 🛠 Skills & Tech Stack
 [<img src="./assets/logo/go.svg" height="48">](https://go.dev/)
@@ -53,7 +55,8 @@ I'm a passionate **Senior Backend Engineer** with **6+ years of experience** bui
 [<img src="./assets/logo/slack.svg" height="48">](https://slack.com/)
 [<img src="./assets/logo/tableau.svg" height="48">](https://www.tableau.com/)
 [<img src="./assets/logo/power-bi.svg" height="48">](https://www.microsoft.com/en-us/power-platform/products/power-bi)
-
+ 
+ ---
 
 ## 🔥 Projects
 ### [✨Journi](https://github.com/natnicha/journi-web)
@@ -69,6 +72,7 @@ A web-based calculation system for a photovoltaic system with a specific manufac
 ### [🌈BeAcross](https://github.com/natnicha/BeAcross)  
 An initiative platform connecting students from various European universities. I contributed as a **full-stack developer**, handling **backend with Python/FastAPI** and **frontend with React/TypeScript**. 
 
+ ---
 
 ## 🌱 Interests
 
@@ -78,7 +82,8 @@ An initiative platform connecting students from various European universities. I
 - UX-driven software design  
 - AI & Machine Learning
 
-
+ ---
+ 
 ## 📫 Let’s Connect
 [![website](./assets/logo/gh-light.svg)](https://github.com/natnicha#gh-light-mode-only)
 [![website](./assets/logo/gh-dark.svg)](https://github.com/natnicha#gh-dark-mode-only)
