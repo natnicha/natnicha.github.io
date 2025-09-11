@@ -1,5 +1,8 @@
 name: Update README
 
+permissions:
+  contents: write
+
 on:
   schedule:
     # Runs daily at 00:00 UTC
@@ -30,3 +33,4 @@ jobs:
           git add README.md
           git commit -m "Update calculated year of experience in README"
           git push
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:${{ github.ref_name }}
