@@ -1,6 +1,6 @@
 # 👋 Hi, I'm Natnicha Rodtong
 
-**Backend Engineer | Cloud Enthusiast | Open-Source Contributor**  
+**Backend Engineer | Open-Source Contributor**  
 
 I'm a passionate **Senior Backend Engineer** with **6+ years of experience** building **scalable, high-performance systems**. I love solving complex problems, working with distributed systems, and exploring new technologies that push the limits of what software can do.  
 
