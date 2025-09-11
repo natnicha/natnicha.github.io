@@ -1,0 +1,46 @@
+name: Update README
+
+on:
+  schedule:
+    # Runs daily at 00:00 UTC
+    - cron: '0 0 * * *'
+  push:
+    branches:
+      - master
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Update README
+        run: |
+          from datetime import datetime
+
+          current_year = datetime.now().year
+          value = current_year - 2018
+
+          readme_file = "README.md"
+          with open(readme_file, "r") as f:
+              content = f.read()
+
+          # Replace the placeholder {{VALUE}} with the current calculation
+          content = content.replace("6+ years of experience", str(value) + "+ years of experience")
+          
+          with open(readme_file, "w") as f:
+              f.write(content)
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "Update calculated value in README"
+          git push
