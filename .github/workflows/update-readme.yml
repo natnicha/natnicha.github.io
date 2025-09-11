@@ -21,7 +21,7 @@ jobs:
           python-version: '3.x'
 
       - name: Update README
-        run: python ./scripts/upate_exp_year.py
+        run: python scripts/upate_exp_year.py
 
       - name: Commit and push changes
         run: |
