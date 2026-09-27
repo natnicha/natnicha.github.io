@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!--
+  ===========================================================================
+  Natnicha Rodtong — personal profile site (home page)
+  ---------------------------------------------------------------------------
+  Edit CONTENT in  assets/data.js   (PROFILE + PROJECTS)
+  Edit LOOK in     assets/site.css  (5 themes at the top of the file)
+  Edit BEHAVIOUR in assets/site.js
+
+  Publish on GitHub Pages:
+    1. create a repo named  natnicha.github.io
+    2. commit this whole folder (index.html, assets/, projects/)
+    3. push to main -> live at https://natnicha.github.io
+  ===========================================================================
+-->
+<html lang="en" data-palette="slate" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Natnicha Rodtong — Senior Backend Engineer &amp; Tech Lead</title>
+<meta name="description" content="Senior Backend Engineer and Tech Lead. Java, Go, Python, Kubernetes, AWS. Cloud-native platforms and distributed systems across Thailand and Germany." />
+<meta name="author" content="Natnicha Rodtong" />
+<meta name="theme-color" content="#1f5fa8" />
+
+<meta property="og:type" content="profile" />
+<meta property="og:title" content="Natnicha Rodtong — Senior Backend Engineer &amp; Tech Lead" />
+<meta property="og:description" content="Java, Go, Python, Kubernetes, AWS. Cloud-native platforms and distributed systems across Thailand and Germany." />
+<meta property="og:image" content="https://github.com/natnicha.png" />
+<meta name="twitter:card" content="summary" />
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231f5fa8'/><text x='50' y='69' font-size='50' font-family='Segoe UI,sans-serif' font-weight='600' fill='white' text-anchor='middle'>NR</text></svg>" />
+<link rel="stylesheet" href="assets/site.css" />
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<main id="main">
+  <div id="top"></div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot-live" aria-hidden="true"></span><span id="availability"></span></div>
+          <h1 id="pName"></h1>
+          <p class="role" id="pRole"></p>
+          <p class="tagline" id="pTagline"></p>
+          <div class="meta-row" id="pMeta"></div>
+          <div class="cta-row" id="pCta"></div>
+        </div>
+        <div class="avatar-wrap">
+          <div id="avatarHost"></div>
+          <div class="avatar-badge" id="pBadge"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HIGHLIGHTS -->
+  <section id="highlights" aria-label="Career highlights">
+    <div class="wrap"><div class="highlights reveal" id="hlGrid"></div></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head reveal"><h2>About</h2></div>
+      <div class="about-grid reveal">
+        <div class="about-body" id="aboutBody"></div>
+        <ul class="facts" id="factList"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>Technical skills</h2>
+        <p>Depth in backend and platform engineering, with enough full-stack and data range to own a system end to end.</p>
+      </div>
+      <div class="skills-grid reveal" id="skillGrid"></div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="sec-head reveal" style="display:flex;align-items:flex-end;flex-wrap:wrap;gap:12px">
+        <div style="flex:1 1 320px">
+          <h2>Selected work</h2>
+          <p>Case studies from production platforms, research, and independent projects.</p>
+        </div>
+        <a class="head-link" href="projects/index.html">All projects &rarr;</a>
+      </div>
+      <div class="card-grid reveal" id="projGrid"></div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>Experience</h2>
+        <p>Engineering and leadership across fintech, e-commerce, logistics, manufacturing, research, and consulting — in Thailand and Germany.</p>
+      </div>
+      <!-- one continuous timeline; earlier roles are hidden items inside it,
+           not a second list, so spacing and the vertical rail stay consistent -->
+      <div class="timeline reveal" id="timeline"></div>
+      <div class="more-wrap">
+        <button class="btn" id="moreBtn" type="button" aria-expanded="false" aria-controls="timeline"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="wrap">
+      <div class="sec-head reveal"><h2>Education &amp; certifications</h2></div>
+      <div class="card-grid reveal" id="eduGrid"></div>
+    </div>
+  </section>
+
+  <!-- WRITING -->
+  <section id="writing">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>Research, writing &amp; beyond</h2>
+        <p>Published work, technical writing, and what I do when I'm away from a keyboard.</p>
+      </div>
+      <div class="card-grid reveal" id="writingGrid"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact reveal">
+        <h2>Let's build something</h2>
+        <p id="contactBlurb"></p>
+        <div class="social" id="socialRow"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <span>&copy; <span id="year">2026</span> Natnicha Rodtong</span>
+    <span>Hand-built — no frameworks, no trackers.</span>
+  </div>
+</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/site.js"></script>
+<script>
+  initChrome({
+    base: "",
+    nav: [
+      { href:"#about",      label:"About",      sec:"about" },
+      { href:"#skills",     label:"Skills",     sec:"skills" },
+      { href:"#projects",   label:"Projects",   sec:"projects" },
+      { href:"#experience", label:"Experience", sec:"experience" },
+      { href:"#education",  label:"Education",  sec:"education" },
+      { href:"#contact",    label:"Contact",    sec:"contact" }
+    ]
+  });
+  renderHome();
+</script>
+</body>
+</html>
