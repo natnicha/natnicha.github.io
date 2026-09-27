@@ -163,10 +163,29 @@ function initChrome(opts){
     applyMode(root.getAttribute("data-theme") === "dark" ? "light" : "dark"));
 
   /* print */
+  /* "Download CV" generates the PDF in the browser (Save as PDF / print to PDF)
+     rather than linking a pre-built file, so it always matches what is on screen.
+     The print stylesheet forces a light one-column layout whatever theme is active.
+     document.title becomes the suggested filename, so swap it for the duration. */
   const doPrint = () => {
     const more = el("moreBtn");
     if (more && more.getAttribute("aria-expanded") === "false") more.click();
-    window.print();
+
+    const prevTitle = document.title;
+    const who = (typeof PROFILE !== "undefined" && PROFILE.name) ? PROFILE.name : "CV";
+    document.title = who.replace(/\s+/g, "") + "-CV";
+
+    const restore = () => {
+      document.title = prevTitle;
+      window.removeEventListener("afterprint", restore);
+    };
+    window.addEventListener("afterprint", restore);
+
+    /* let the expanded roles lay out before the dialog snapshots the page */
+    requestAnimationFrame(() => {
+      window.print();
+      setTimeout(restore, 1000);   // fallback for browsers without afterprint
+    });
   };
   el("printBtn").addEventListener("click", doPrint);
   /* Delegated, not bound per-element: initChrome() runs before renderHome(),
@@ -290,9 +309,7 @@ function renderHome(){
     `<a class="btn btn-primary" href="#projects">View projects</a>`,
     `<a class="btn" href="mailto:${P.email}">${ICON.mail}Get in touch</a>`,
     `<a class="btn" href="${P.links.github}" target="_blank" rel="noopener">${ICON.gh}GitHub</a>`,
-    P.cvFile
-      ? `<a class="btn" href="${P.cvFile}" download>${ICON.doc}Download CV</a>`
-      : `<button class="btn" type="button" data-print>${ICON.doc}Download CV</button>`
+    `<button class="btn" type="button" data-print>${ICON.doc}Download CV</button>`
   ].join("");
 
   avatarInto("avatarHost");
