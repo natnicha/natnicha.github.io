@@ -169,7 +169,12 @@ function initChrome(opts){
     window.print();
   };
   el("printBtn").addEventListener("click", doPrint);
-  document.querySelectorAll("[data-print]").forEach(b => b.addEventListener("click", doPrint));
+  /* Delegated, not bound per-element: initChrome() runs before renderHome(),
+     so any [data-print] control rendered later would otherwise get no handler. */
+  document.addEventListener("click", (e) => {
+    const t = e.target.closest && e.target.closest("[data-print]");
+    if (t) { e.preventDefault(); doPrint(); }
+  });
 
   /* sticky shadow */
   const hd = el("siteHead");
@@ -285,7 +290,9 @@ function renderHome(){
     `<a class="btn btn-primary" href="#projects">View projects</a>`,
     `<a class="btn" href="mailto:${P.email}">${ICON.mail}Get in touch</a>`,
     `<a class="btn" href="${P.links.github}" target="_blank" rel="noopener">${ICON.gh}GitHub</a>`,
-    `<button class="btn" type="button" data-print>${ICON.doc}Download CV</button>`
+    P.cvFile
+      ? `<a class="btn" href="${P.cvFile}" download>${ICON.doc}Download CV</a>`
+      : `<button class="btn" type="button" data-print>${ICON.doc}Download CV</button>`
   ].join("");
 
   avatarInto("avatarHost");
