@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+  ===========================================================================
+  PROJECT DETAIL PAGE TEMPLATE
+  ---------------------------------------------------------------------------
+  To add a new project:
+    1. add an entry to PROJECTS in ../assets/data.js with a unique `slug`
+    2. copy this file to  <slug>.html
+    3. replace audio-evaluation in the renderProject() call at the bottom
+  Everything on the page is rendered from the PROJECTS entry.
+  ===========================================================================
+-->
+<html lang="en" data-palette="slate" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Project — Natnicha Rodtong</title>
+<meta name="description" content="Project case study by Natnicha Rodtong." />
+<meta name="theme-color" content="#1f5fa8" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231f5fa8'/><text x='50' y='69' font-size='50' font-family='Segoe UI,sans-serif' font-weight='600' fill='white' text-anchor='middle'>NR</text></svg>" />
+<link rel="stylesheet" href="../assets/site.css" />
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<main id="main">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><span class="sep">/</span>
+      <a href="index.html">Projects</a><span class="sep">/</span>
+      <span id="crumbTitle"></span>
+    </nav>
+  </div>
+
+  <div class="proj-hero">
+    <div class="wrap">
+      <span class="kicker" id="pKicker"></span>
+      <h1 id="pTitle"></h1>
+      <p class="lede" id="pLede"></p>
+      <div class="chips" id="pStack"></div>
+      <div class="cta-row" id="pLinks" style="margin-top:18px"></div>
+      <dl class="spec" id="pSpec"></dl>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <article class="prose" id="pBody"></article>
+    <nav class="pager" id="pPager" aria-label="Project navigation"></nav>
+  </div>
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <span>&copy; <span id="year">2026</span> Natnicha Rodtong</span>
+    <span><a href="index.html">&larr; All projects</a></span>
+  </div>
+</footer>
+
+<script src="../assets/data.js"></script>
+<script src="../assets/site.js"></script>
+<script>
+  initChrome({
+    base: "../",
+    nav: [
+      { href:"../index.html#about",      label:"About" },
+      { href:"../index.html#skills",     label:"Skills" },
+      { href:"index.html",               label:"Projects" },
+      { href:"../index.html#experience", label:"Experience" },
+      { href:"../index.html#contact",    label:"Contact" }
+    ]
+  });
+  renderProject("audio-evaluation");
+</script>
+</body>
+</html>
