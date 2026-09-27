@@ -49,8 +49,16 @@ printer icon worked because `initChrome` creates it itself. Now a **delegated** 
 to any future control rendered by `renderHome()` / `renderProject()`: bind by delegation,
 never with `querySelectorAll` inside `initChrome()`.
 
-"Download CV" now serves the real `PROFILE.cvFile` (`NatnichaR-CV_2026.pdf`) as a download
-rather than opening the print dialog; that PDF must be committed with the site.
+17. *(mid-session)* "Download CV" must **generate** the PDF, not link the pre-built file.
+
+**Decided behaviour for "Download CV" (#17).** It briefly linked `NatnichaR-CV_2026.pdf`;
+she rejected that. It now calls `doPrint()` — expands the hidden earlier roles, swaps
+`document.title` to `NatnichaRodtong-CV` so that becomes the browser's suggested filename,
+prints, then restores the title on `afterprint` (with a 1s `setTimeout` fallback). The
+`cvFile` field was removed from `PROFILE`. Consequence: **the site does not need
+`NatnichaR-CV_2026.pdf` committed**, and the download always matches what is on screen.
+The standalone `NatnichaR-CV_2026.pdf` / `.docx` remain separate artefacts for sending to
+people directly.
 
 ---
 

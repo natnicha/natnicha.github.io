@@ -40,10 +40,6 @@ const PROFILE = {
   photo: "https://github.com/natnicha.png",
   initials: "NR",
 
-  /* "Download CV" serves this file. Must sit next to index.html and be committed
-     alongside the site. Set to "" to fall back to the browser print dialog. */
-  cvFile: "NatnichaR-CV_2026.pdf",
-
   links: {
     github:   "https://github.com/natnicha",
     linkedin: "https://www.linkedin.com/in/natnicha-rodtong",
