@@ -132,7 +132,7 @@ for s in slug-one slug-two; do sed "s/__SLUG__/$s/" _template.html > "$s.html"; 
 ```bash
 # in a copy of this folder, without the CV/context markdown if you prefer
 git init
-git add index.html assets projects
+git add index.html assets projects NatnichaR-CV_2026.pdf
 git commit -m "Add personal profile site"
 git branch -M main
 git remote add origin https://github.com/natnicha/natnicha.github.io.git
@@ -199,9 +199,12 @@ On project pages the path is relative to the page, so prefer an absolute URL or
 
 ## Notes
 
-- **Print / PDF.** The header print button (and "Download CV") expands the collapsed
-  earlier roles and opens the print dialog. Print styles force a clean light one-column
-  layout regardless of the active theme, so `Ctrl/Cmd + P → Save as PDF` gives a usable CV.
+- **Download CV.** The hero button serves `PROFILE.cvFile` (`NatnichaR-CV_2026.pdf`) as a
+  real download. **Commit that PDF with the site** or the button 404s on GitHub Pages.
+  Set `cvFile: ""` to fall back to the browser print dialog instead.
+- **Print.** The header printer icon expands the collapsed earlier roles and opens the
+  print dialog. Print styles force a clean light one-column layout regardless of the
+  active theme, so `Ctrl/Cmd + P → Save as PDF` also gives a usable CV.
 - **Accessibility.** Semantic landmarks, a skip link, visible focus rings, `aria` state on
   all toggles, and full `prefers-reduced-motion` support.
 - **Privacy.** Phone number, date of birth, and home address from the PDF CV are
